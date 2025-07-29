@@ -17,9 +17,9 @@ body {
 .chat-container {
   position: fixed;
   right: 20px;
-  bottom: 40px;
+  bottom: 20px;
   width: 350px;
-  height: 80vh;
+  height: auto;
   max-height: 80vh;
   background: white;
   border: 1px solid #ccc;
