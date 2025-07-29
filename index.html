@@ -1,18 +1,10 @@
+<button id="openChat">Ярилцъя</button>
 
-<!DOCTYPE html>
-<html lang="mn">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Oyunsanaa Chat</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <button id="openChat">Ярилцъя</button>
-  <div id="chatContainer" class="hidden">
-    <div id="chatbox"></div>
-    <input type="text" id="userInput" placeholder="Бичих..." />
+<div id="chatPopup" class="hidden">
+  <div class="chatbox-container">
+    <iframe 
+      src="https://oyunsanaa-chat.vercel.app"
+      width="100%" height="100%" frameborder="0"></iframe>
+    <span id="closeChat">✖</span>
   </div>
-  <script src="script.js"></script>
-</body>
-</html>
+</div>
