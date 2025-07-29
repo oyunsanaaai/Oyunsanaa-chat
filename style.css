@@ -1,110 +1,93 @@
+
 body {
   margin: 0;
   font-family: sans-serif;
 }
 
 .chat-toggle {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
   background-color: #800000;
   color: white;
   padding: 10px 20px;
-  border-radius: 8px;
   cursor: pointer;
   width: fit-content;
-  z-index: 10000;
+  margin: 20px;
+  border-radius: 8px;
 }
 
 .chat-container {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 80px;
   width: 350px;
   height: 80vh;
   max-height: 80vh;
-  background-color: white;
+  background: white;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: none;
+  border-radius: 12px;
+  display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   z-index: 9999;
+}
+
+.chat-container.hidden {
+  display: none;
 }
 
 .chat-header {
   background-color: #800000;
   color: white;
   padding: 10px;
-  text-align: center;
-  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.chat-header .close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
+.chat-controls span {
+  margin-left: 10px;
   cursor: pointer;
-}
-
-.chat-header .collapse-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 8px;
+  font-weight: bold;
 }
 
 .chatbox {
-  flex: 1;
+  flex-grow: 1;
   padding: 10px;
   overflow-y: auto;
-}
-
-.input-area {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-}
-
-.input-area input {
-  flex: 1;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.input-area button {
-  background-color: #800000;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  margin-left: 10px;
-  cursor: pointer;
-  border-radius: 5px;
+  background: #f9f9f9;
 }
 
 .message {
-  margin: 5px 0;
-  padding: 8px;
-  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
   max-width: 80%;
-  word-wrap: break-word;
 }
 
 .message.user {
-  background-color: #f5f5dc;
+  background: #f5f5dc;
   align-self: flex-end;
 }
 
 .message.bot {
-  background-color: #eee;
+  background: #eee;
   align-self: flex-start;
 }
+
+.input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#userInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+#sendButton {
+  background-color: #800000;
+  color: white;
+  border: none;
+  padding: 0 15px;
