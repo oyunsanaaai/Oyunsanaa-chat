@@ -12,12 +12,15 @@ body {
   width: fit-content;
   margin: 20px;
   border-radius: 8px;
+  position: fixed;
+  z-index: 10000;
+  right: 20px;
+  bottom: 20px
 }
-
 .chat-container {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 70px;
   width: 350px;
   height: 70;
   max-height: 80vh;
