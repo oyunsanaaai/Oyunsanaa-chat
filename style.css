@@ -19,6 +19,7 @@ body {
   right: 20px;
   bottom: 80px;
   width: 350px;
+  height: 140vh;
   max-height: 140vh;
   background: white;
   border: 1px solid #ccc;
