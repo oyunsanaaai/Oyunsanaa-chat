@@ -12,7 +12,6 @@
       font-family: Arial, sans-serif;
       background: #f6f6f6;
     }
-
     .chat-container {
       position: fixed;
       bottom: 0;
@@ -30,7 +29,6 @@
       overflow: hidden;
       z-index: 9999;
     }
-
     @media (max-width: 768px) {
       .chat-container {
         max-width: 100%;
@@ -38,7 +36,6 @@
         border-radius: 0;
       }
     }
-
     .chat-header {
       padding: 16px;
       background: #8A2BE2;
@@ -46,7 +43,6 @@
       font-weight: bold;
       text-align: center;
     }
-
     .chatbox {
       flex: 1;
       padding: 16px;
@@ -54,7 +50,6 @@
       display: flex;
       flex-direction: column;
     }
-
     .message {
       margin: 8px 0;
       padding: 10px 14px;
@@ -62,23 +57,19 @@
       max-width: 80%;
       word-wrap: break-word;
     }
-
     .message.user {
       background: #DCF8C6;
       align-self: flex-end;
     }
-
     .message.bot {
       background: #EAEAEA;
       align-self: flex-start;
     }
-
     .chat-input {
       display: flex;
       padding: 12px;
       border-top: 1px solid #ccc;
     }
-
     .chat-input input {
       flex: 1;
       padding: 10px;
@@ -87,7 +78,6 @@
       border: 1px solid #ccc;
       outline: none;
     }
-
     .typing-indicator {
       font-size: 14px;
       color: gray;
@@ -96,63 +86,57 @@
   </style>
 </head>
 <body>
-
-<div class="chat-container">
-  <div class="chat-header">Oyunsanaa 🤍</div>
-  <div class="chatbox" id="chatbox"></div>
-  <div class="typing-indicator" id="typingIndicator" style="display:none;">Oyunsanaa бичиж байна...</div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Бичнэ үү..." autocomplete="off" />
+  <div class="chat-container">
+    <div class="chat-header">Oyunsanaa 🤍</div>
+    <div class="chatbox" id="chatbox"></div>
+    <div class="typing-indicator" id="typingIndicator" style="display:none;">Oyunsanaa бичиж байна...</div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Бичнэ үү..." autocomplete="off" />
+    </div>
   </div>
-</div>
 
-<script>
-  const chatbox = document.getElementById('chatbox');
-  const userInput = document.getElementById('userInput');
-  const typingIndicator = document.getElementById('typingIndicator');
+  <script>
+    const chatbox = document.getElementById('chatbox');
+    const userInput = document.getElementById('userInput');
+    const typingIndicator = document.getElementById('typingIndicator');
 
-  function appendMessage(sender, text) {
-    const message = document.createElement('div');
-    message.className = `message ${sender}`;
-    message.textContent = text;
-    chatbox.appendChild(message);
-    chatbox.scrollTop = chatbox.scrollHeight;
-  }
-
-  function getBotResponse(input) {
-    typingIndicator.style.display = 'block';
-
-    setTimeout(() => {
-      typingIndicator.style.display = 'none';
-
-      let response = '';
-      const lower = input.toLowerCase();
-
-      if (lower.includes('сайн')) {
-        response = 'Сайн уу! 🤍 Би Oyunsanaa байна.';
-      } else if (lower.includes('баярлалаа')) {
-        response = 'Танд ч бас баярлалаа!';
-      } else if (lower.includes('гутрал') || lower.includes('уйтгар')) {
-        response = 'Хэрвээ та гутрал мэдэрч байгаа бол би танд тусалж чадна. Бид хамтдаа энэ мэдрэмжийг давж чадна.';
-      } else {
-        response = 'Сонирхолтой байна! Та илүү дэлгэрэнгүй бичиж болох уу?';
-      }
-
-      appendMessage('bot', response);
-    }, 700);
-  }
-
-  userInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      const message = userInput.value.trim();
-      if (message) {
-        appendMessage('user', message);
-        getBotResponse(message);
-        userInput.value = '';
-      }
+    function appendMessage(sender, text) {
+      const message = document.createElement('div');
+      message.className = `message ${sender}`;
+      message.textContent = text;
+      chatbox.appendChild(message);
+      chatbox.scrollTop = chatbox.scrollHeight;
     }
-  });
-</script>
 
+    function getBotResponse(input) {
+      typingIndicator.style.display = 'block';
+      setTimeout(() => {
+        typingIndicator.style.display = 'none';
+        let response = '';
+        const lower = input.toLowerCase();
+        if (lower.includes('сайн')) {
+          response = 'Сайн уу! 🤍 Би Oyunsanaa байна.';
+        } else if (lower.includes('баярлалаа')) {
+          response = 'Танд ч бас баярлалаа!';
+        } else if (lower.includes('гутрал') || lower.includes('уйтгар')) {
+          response = 'Та гутрал мэдэрч байгаа бол би туслахад бэлэн байна.';
+        } else {
+          response = 'Сонирхолтой байна! Илүү дэлгэрэнгүй бичээрэй.';
+        }
+        appendMessage('bot', response);
+      }, 700);
+    }
+
+    userInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const message = userInput.value.trim();
+        if (message) {
+          appendMessage('user', message);
+          getBotResponse(message);
+          userInput.value = '';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
