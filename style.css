@@ -1,126 +1,95 @@
-/* CHATBOX CONTAINER */
-#chatbox-container {
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.chat-toggle {
+  background-color: #800000;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.chat-container {
   position: fixed;
-  bottom: 70px;
   right: 20px;
-  width: 90vw;
-  max-width: 400px;
-  height: 75vh;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 15px;
-  overflow: hidden;
-  display: none;
+  bottom: 80px;
+  width: 350px;
+  height: 140vh;
+  max-height: 140vh;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  display: flex;
   flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   z-index: 9999;
 }
 
-/* HEADER */
-#chatbox-header {
+.chat-container.hidden {
+  display: none;
+}
+
+.chat-header {
   background-color: #800000;
   color: white;
-  padding: 10px 15px;
-  font-weight: bold;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* CLOSE AND TOGGLE BUTTON */
-#closeBtn, #toggleBtn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
+.chat-controls span {
+  margin-left: 10px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-/* MESSAGE AREA */
-#chatbox {
-  flex: 1;
+.chatbox {
+  flex-grow: 1;
   padding: 10px;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+  background: #f9f9f9;
 }
 
-/* USER MESSAGE */
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
 .message.user {
-  background-color: #f5f5dc;
+  background: #f5f5dc;
   align-self: flex-end;
-  border-radius: 15px 15px 0 15px;
-  padding: 10px;
-  margin: 5px;
-  max-width: 75%;
 }
 
-/* BOT MESSAGE */
 .message.bot {
-  background-color: #eee;
+  background: #eee;
   align-self: flex-start;
-  border-radius: 15px 15px 15px 0;
-  padding: 10px;
-  margin: 5px;
-  max-width: 75%;
 }
 
-/* INPUT AREA */
-#inputArea {
+.input-area {
   display: flex;
-  padding: 10px;
-  background: white;
   border-top: 1px solid #ccc;
 }
 
 #userInput {
-  flex: 1;
-  border: none;
+  flex-grow: 1;
   padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
-#sendBtn {
+#sendButton {
   background-color: #800000;
   color: white;
   border: none;
-  padding: 0 14px;
-  margin-left: 10px;
-  font-size: 20px;
-  border-radius: 5px;
+  padding: 0 15px;
   cursor: pointer;
-}
-
-/* TOGGLE BUTTON */
-#chat-toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #800000;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 600px) {
-  #chatbox-container {
-    width: 100vw;
-    height: 88vh;
-    bottom: 60px;
-    right: 0;
-    border-radius: 15px 15px 0 0;
-  }
-
-  #chat-toggle-btn {
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-    padding: 10px 16px;
-  }
 }
